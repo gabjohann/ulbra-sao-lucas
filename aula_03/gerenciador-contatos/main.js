@@ -1,22 +1,20 @@
 document.addEventListener("DOMContentLoaded", carregarContatos);
 
-const formulario = document.getElementById("formContato");
+const formulario = document.getElementById("form-group");
 const botaoAdicionar = document.getElementById("addContato");
-const botaoCancelar = document.getElementById("cancelarEdicao");
 
-let indexEdicao = null; // Guarda o índice do contato que está sendo editado
+let editarIndex = -1;
 
 formulario.addEventListener("submit", function (event) {
   event.preventDefault();
+  console.log("Evento submit detectado"); // Verifica se o evento está sendo chamado
 
-  if (indexEdicao !== null) {
-    atualizarContato();
-  } else {
+  if (editarIndex === -1) {
     adicionarContato();
+  } else {
+    editarContato();
   }
 });
-
-botaoCancelar.addEventListener("click", cancelarEdicao);
 
 function adicionarContato() {
   const nome = document.getElementById("nome").value.trim();
@@ -24,11 +22,12 @@ function adicionarContato() {
   const email = document.getElementById("email").value.trim();
 
   if (nome === "" || telefone === "" || email === "") {
-    alert("Por favor, preencha todos os campos!");
+    alert("Por favor, preencha todos os campos");
     return;
   }
 
   const contato = { nome, telefone, email };
+
   salvarContato(contato);
   limparCampos();
   carregarContatos();
@@ -50,18 +49,18 @@ function carregarContatos() {
     const li = document.createElement("li");
 
     li.innerHTML = `
-            <p><strong>Nome:</strong> ${contato.nome}</p>
-            <p><strong>Telefone:</strong> ${contato.telefone}</p>
-            <p><strong>Email:</strong> ${contato.email}</p>
-            <button class="edit" onclick="editarContato(${index})">Editar</button>
-            <button class="delete" onclick="removerContato(${index})">X</button>
-        `;
+        <p><strong>Nome:</strong> ${contato.nome}</p>
+        <p><strong>Telefone:</strong> ${contato.telefone}</p>
+        <p><strong>E-mail:</strong> ${contato.email}</p>
+        <button type="button" class="editar" onclick="editarForm(${index})">Editar</button>
+        <button type="button" class="delete" onclick="removerContato(${index})">X</button>
+    `;
 
     lista.appendChild(li);
   });
 }
 
-function editarContato(index) {
+function editarForm(index) {
   let contatos = JSON.parse(localStorage.getItem("contatos")) || [];
   const contato = contatos[index];
 
@@ -69,32 +68,29 @@ function editarContato(index) {
   document.getElementById("telefone").value = contato.telefone;
   document.getElementById("email").value = contato.email;
 
+  editarIndex = index;
   botaoAdicionar.textContent = "Atualizar";
-  botaoCancelar.classList.remove("hidden");
-
-  indexEdicao = index;
 }
 
-function atualizarContato() {
+function editarContato() {
+  const nome = document.getElementById("nome").value.trim();
+  const telefone = document.getElementById("telefone").value.trim();
+  const email = document.getElementById("email").value.trim();
+
+  if (nome === "" || telefone === "" || email === "") {
+    alert("Por favor, preencha todos os campos");
+    return;
+  }
+
   let contatos = JSON.parse(localStorage.getItem("contatos")) || [];
-
-  contatos[indexEdicao] = {
-    nome: document.getElementById("nome").value.trim(),
-    telefone: document.getElementById("telefone").value.trim(),
-    email: document.getElementById("email").value.trim(),
-  };
-
+  contatos[editarIndex] = { nome, telefone, email };
   localStorage.setItem("contatos", JSON.stringify(contatos));
 
-  cancelarEdicao();
+  editarIndex = -1;
   carregarContatos();
-}
 
-function cancelarEdicao() {
   limparCampos();
   botaoAdicionar.textContent = "Adicionar";
-  botaoCancelar.classList.add("hidden");
-  indexEdicao = null;
 }
 
 function removerContato(index) {
