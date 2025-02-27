@@ -2,16 +2,15 @@ import { Button } from "../button";
 import { ItemList } from "../item-list";
 import "./styles.css";
 
-export function Card({ description, title, price }) {
-  const ultimate = [
-    "usuários ilimitados",
-    "suporte 24/7",
-    "CSM dedicado",
-    "treinamentos",
-  ];
-
+export function Card({
+  description,
+  title,
+  price,
+  darkMode = false,
+  features,
+}) {
   return (
-    <div className="container darkContainer">
+    <div className={`container ${darkMode ? "darkContainer" : ""}`}>
       <p id="description">{description}</p>
       <div className="details">
         <h1>{title}</h1>
@@ -29,9 +28,10 @@ export function Card({ description, title, price }) {
       <hr />
 
       <ul>
-        {ultimate.map((item, index) => (
-          <ItemList key={index} functionality={item} />
-        ))}
+        {features &&
+          features.map((item, index) => (
+            <ItemList key={index} functionality={item} />
+          ))}
       </ul>
     </div>
   );

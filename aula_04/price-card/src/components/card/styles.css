@@ -1,12 +1,13 @@
 .container {
   width: 384px;
-  height: 454px;
   border-radius: 10px;
   padding: 48px 32px 32px;
+  border: 1px solid #e2e8f0;
 }
 
 .darkContainer {
   background-color: #0f172a;
+  border: none;
 }
 
 #description {
