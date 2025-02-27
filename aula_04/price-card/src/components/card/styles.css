@@ -1,0 +1,58 @@
+.container {
+  width: 384px;
+  height: 454px;
+  border-radius: 10px;
+  padding: 48px 32px 32px;
+}
+
+.darkContainer {
+  background-color: #0f172a;
+}
+
+#description {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 6%;
+  padding-bottom: 8px;
+}
+
+.darkContainer p {
+  color: #996dff;
+}
+
+.details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.details h1 {
+  font-weight: 700;
+  font-size: 32px;
+}
+
+.darkContainer .details h1 {
+  color: #fff;
+}
+
+.darkContainer .details p,
+.darkContainer .details strong,
+.darkContainer .details span {
+  color: #f8fafc;
+}
+
+.darkContainer p {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.darkContainer strong {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.darkContainer span {
+  font-size: 18px;
+  font-weight: 600;
+}
