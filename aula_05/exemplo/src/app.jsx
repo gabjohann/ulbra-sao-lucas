@@ -1,14 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export function App() {
-  const [count, setCount] = useState(0);
+  const [usuario, setUsuario] = useState(null);
+
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/users/1")
+      .then((response) => response.json())
+      .then((data) => setUsuario(data));
+  }, []);
+
+  if (!usuario) return <div>Carregando...</div>;
 
   return (
     <div>
-      <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>
-        Click me
-      </button>
+      <h1>{usuario.name}</h1>
+      <p>Email: {usuario.email}</p>
     </div>
   );
 }
