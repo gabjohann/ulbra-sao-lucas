@@ -17,10 +17,16 @@
   top: -20px;
 }
 
+.tags-container {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .tag {
   display: flex;
   align-items: center;
-  gap: 4px;
 }
 
 .tag span {

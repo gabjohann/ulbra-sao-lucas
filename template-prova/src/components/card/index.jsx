@@ -5,11 +5,13 @@ export function Card({ coffeeImg, tags, title, description }) {
   return (
     <div id="card">
       <img src={coffeeImg} alt={title} id="coffeeImg" />
-      {tags.map((tag, index) => (
-        <div className="tag">
-          <span key={index}>{tag}</span>
-        </div>
-      ))}
+      <div className="tags-container">
+        {tags.map((tag, index) => (
+          <div className="tag" key={index}>
+            <span>{tag}</span>
+          </div>
+        ))}
+      </div>
 
       <h1>{title}</h1>
       <p className="description">{description} </p>
