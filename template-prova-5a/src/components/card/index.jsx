@@ -8,7 +8,7 @@ export function Card({ imgCoffee, tags, title, description }) {
 
       <div id="tags">
         {tags.map((tag, index) => (
-          <span>{tag}</span>
+          <span key={index}>{tag}</span>
         ))}
       </div>
 

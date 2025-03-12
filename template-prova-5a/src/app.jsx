@@ -56,6 +56,7 @@ export function App() {
             <Card
               key={coffee.id}
               imgCoffee={coffee.image}
+              tags={coffee.tags}
               title={coffee.title}
               description={coffee.description}
             />
