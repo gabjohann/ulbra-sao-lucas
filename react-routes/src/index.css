@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #242424;
+  color: white;
+}
+
+button {
+  outline: none;
+  border: 1px solid gray;
+  border-radius: 6px;
+  padding: 4px 8px;
+  cursor: pointer;
+}
