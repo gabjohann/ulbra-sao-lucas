@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.light {
+  background-color: white;
+  color: black;
+  height: 100vh;
+}
+
+.dark {
+  background-color: black;
+  color: white;
+  height: 100vh;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.title-about {
+  color: red;
+}
