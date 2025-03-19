@@ -1,0 +1,16 @@
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-transform: capitalize;
+  padding-top: 16px;
+}
+
+li div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #cbd5e1;
+}
