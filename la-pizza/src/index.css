@@ -1,0 +1,47 @@
+/* SELECIONA TODOS OS ELEMENTOS DO HTML */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+/* SELECIONA O ELEMENTO RAIZ (<html>) */
+:root {
+  --brand-color: #ffbd48;
+  --dark-10: #2e2e2e;
+  --dark-20: #fefbf4;
+  --dark-30: #fff;
+}
+
+.container {
+  width: 100%;
+  height: 37.5rem;
+  background: url('./assets/background.png') center/cover no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  width: 37.25rem;
+  height: 24.625rem;
+}
+
+.products-container {
+  height: 46.625rem;
+  background: url('./assets/bg-products.png') center/cover no-repeat;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title {
+  padding-top: 9rem;
+  padding-bottom: 3.125rem;
+
+  font-size: 2.5rem;
+  font-weight: 600;
+}
