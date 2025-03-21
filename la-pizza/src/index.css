@@ -1,5 +1,5 @@
 /* SELECIONA TODOS OS ELEMENTOS DO HTML */
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -14,10 +14,23 @@
   --dark-30: #fff;
 }
 
+button {
+  width: max-content;
+  outline: none;
+  border: none;
+  background-color: var(--brand-color);
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 25px;
+  padding: 0.75rem 2.5rem;
+  cursor: pointer;
+}
+
 .container {
   width: 100%;
   height: 37.5rem;
-  background: url('./assets/background.png') center/cover no-repeat;
+  background: url("./assets/background.png") center/cover no-repeat;
 
   display: flex;
   align-items: center;
@@ -30,8 +43,8 @@
 }
 
 .products-container {
-  height: 46.625rem;
-  background: url('./assets/bg-products.png') center/cover no-repeat;
+  min-height: 46.625rem;
+  background: url("./assets/bg-products.png") center/cover no-repeat;
 
   display: flex;
   align-items: center;
@@ -44,4 +57,93 @@
 
   font-size: 2.5rem;
   font-weight: 600;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 2.4375rem;
+}
+
+.about {
+  width: 100%;
+  max-width: 76rem;
+
+  display: flex;
+  align-items: center;
+  gap: 8.5rem;
+  margin: 4rem auto;
+}
+
+.about img {
+  width: 30.5rem;
+  height: 31.25rem;
+}
+
+.description {
+  width: 100%;
+  max-width: 37rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.d-title {
+  font-size: 2.25rem;
+  font-weight: 600;
+  color: var(--dark-10);
+}
+
+.d-title span:first-child {
+  color: #ffbd48;
+}
+
+.d-title span:nth-child(2) {
+  color: #ff3536;
+}
+
+.d-title span:last-child {
+  color: #60bb28;
+}
+
+.history {
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 150%;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    height: 18.75rem;
+  }
+
+  .logo {
+    width: 13.5rem;
+    height: 8.9375rem;
+  }
+
+  .title {
+    padding-top: 3rem;
+  }
+
+  .products {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    grid-row-gap: 5.1875rem; /* 39px gap + 44px tamanho da pizza */
+  }
+
+  .about {
+    flex-direction: column;
+  }
+
+  .about img {
+    width: 20.4375rem;
+    height: 25rem;
+  }
+
+  .description {
+    width: 20.4375rem;
+  }
 }
