@@ -1,0 +1,14 @@
+{
+  "lista_de_compras": [
+    { "nome": "maçã", "quantidade": "2 unidades", "tipo": "fruta" },
+    { "nome": "leite", "quantidade": "2 litros", "tipo": "bebida" },
+    { "nome": "pão", "quantidade": "5 unidades", "tipo": "padaria" },
+    { "nome": "cenoura", "quantidade": "1 kg", "tipo": "legume" },
+    { "nome": "frango", "quantidade": "1,5 kg", "tipo": "carne" },
+    { "nome": "banana", "quantidade": "1 dúzia", "tipo": "fruta" },
+    { "nome": "tomate", "quantidade": "500 g", "tipo": "legume" },
+    { "nome": "suco de laranja", "quantidade": "1 litro", "tipo": "bebida" },
+    { "nome": "carne bovina", "quantidade": "2 kg", "tipo": "carne" },
+    { "nome": "croissant", "quantidade": "3 unidades", "tipo": "padaria" }
+  ]
+}

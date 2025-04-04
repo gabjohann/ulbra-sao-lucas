@@ -1,0 +1,68 @@
+form {
+  display: grid;
+  row-gap: 0.75rem;
+  grid-template-columns: repeat(3, 1fr);
+
+  position: absolute;
+  top: -2.875rem;
+}
+
+label {
+  font-size: 12px;
+  color: var(--gray-200);
+  line-height: 100%;
+  letter-spacing: 3%;
+}
+
+.item-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.item-input:first-child {
+  grid-column: span 3;
+}
+
+.item {
+  height: 2.5rem;
+
+  background-color: var(--gray-500);
+  border-radius: 6px;
+  border: 1px solid var(--gray-300);
+  padding: 0.75rem;
+}
+
+.quantity-input-container {
+  width: 8.5625rem;
+  height: 2.5rem;
+  display: flex;
+  border-radius: 6px;
+  border: 1px solid var(--gray-300);
+  overflow: hidden;
+}
+
+.quantity-input {
+  width: 4.125rem;
+  border: none;
+  text-align: left;
+  background-color: var(--gray-500);
+  padding-left: 0.75rem;
+}
+
+.unit-select {
+  width: 4.5rem;
+  border: none;
+  color: var(--gray-200);
+  background-color: var(--gray-400);
+  border-left: 1px solid var(--gray-300);
+}
+
+button {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.5rem;
+  background-color: var(--purple);
+  color: var(--gray-100);
+  clip-path: circle();
+}
