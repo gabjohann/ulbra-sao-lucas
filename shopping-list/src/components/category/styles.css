@@ -1,0 +1,49 @@
+.select-container {
+  position: relative;
+  width: 14.5rem;
+}
+
+.select-box {
+  border: 1px solid var(--gray-200);
+  border-radius: 6px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  cursor: pointer;
+  color: var(--gray-200);
+  background-color: var(--gray-400);
+
+  padding: 0.3rem;
+}
+
+.options-list {
+  position: absolute;
+  top: 105%;
+  left: 0;
+  right: 0;
+  z-index: 10;
+
+  color: var(--gray-100);
+  background: var(--gray-400);
+
+  border-radius: 6px;
+  border: 1px solid var(--gray-300);
+  padding: 0.75rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.option:hover {
+  background: var(--gray-300);
+}

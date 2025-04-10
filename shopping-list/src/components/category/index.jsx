@@ -1,5 +1,4 @@
-import * as React from "react";
-import * as Select from "@radix-ui/react-select";
+import { useState } from "react";
 import {
   Sandwich,
   Carrot,
@@ -7,50 +6,54 @@ import {
   Apple,
   Milk,
   ChevronDown,
-  Check,
+  ChevronUp,
 } from "lucide-react";
+import "./styles.css";
 
 const categories = [
-  { value: "padaria", label: "Padaria", icon: <Sandwich size={16} /> },
-  { value: "legume", label: "Legume", icon: <Carrot size={16} /> },
-  { value: "carne", label: "Carne", icon: <Beef size={16} /> },
-  { value: "fruta", label: "Fruta", icon: <Apple size={16} /> },
-  { value: "bebida", label: "Bebida", icon: <Milk size={16} /> },
+  { name: "Padaria", icon: Sandwich, color: "#bb9f3a" },
+  { name: "Legume", icon: Carrot, color: "#8cad51" },
+  { name: "Carne", icon: Beef, color: "#db5bbf" },
+  { name: "Fruta", icon: Apple, color: "#e07b67" },
+  { name: "Bebida", icon: Milk, color: "#7b94cb" },
 ];
 
-export function CategorySelect() {
-  return (
-    <Select.Root>
-      <Select.Trigger>
-        <Select.Value placeholder="Selecione uma categoria" />
-        <Select.Icon>
-          <ChevronDown size={16} />
-        </Select.Icon>
-      </Select.Trigger>
+export function Category({ selectedCategory, onChange }) {
+  const [open, setOpen] = useState(false);
 
-      <Select.Portal>
-        <Select.Content>
-          <Select.Viewport>
-            {categories.map((category) => (
-              <SelectItem key={category.value} value={category.value}>
-                {category.icon}
-                <span>{category.label}</span>
-              </SelectItem>
-            ))}
-          </Select.Viewport>
-        </Select.Content>
-      </Select.Portal>
-    </Select.Root>
+  return (
+    <div className="select-container">
+      <div className="select-box" onClick={() => setOpen(!open)}>
+        <div className="category">
+          <span className="icon">
+            <selectedCategory.icon size={16} color={selectedCategory.color} />
+          </span>
+          <span>{selectedCategory.name}</span>
+        </div>
+        <span className="arrow">{open ? <ChevronUp /> : <ChevronDown />}</span>
+      </div>
+
+      {open && (
+        <ul className="options-list">
+          {categories.map((category, i) => (
+            <li
+              key={i}
+              className="option"
+              onClick={() => {
+                onChange(category);
+                setOpen(false);
+              }}
+            >
+              <span className="icon">
+                <category.icon size={16} color={category.color} />
+              </span>
+              <span>{category.name}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
   );
 }
 
-const SelectItem = React.forwardRef(({ children, ...props }, ref) => (
-  <Select.Item ref={ref} {...props}>
-    <Select.ItemText>{children}</Select.ItemText>
-    <Select.ItemIndicator>
-      <Check size={16} />
-    </Select.ItemIndicator>
-  </Select.Item>
-));
-
-export default CategorySelect;
+export { categories };

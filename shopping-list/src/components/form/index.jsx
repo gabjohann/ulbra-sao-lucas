@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Plus } from "lucide-react";
+import { Category, categories } from "../category";
 import "./styles.css";
 
 /* export function Form({ onSearch }) { 
@@ -15,6 +16,7 @@ export function Form({ onAddProduct }) {
   const [nome, setNome] = useState("");
   const [quantidade, setQuantidade] = useState(1);
   const [tipo, setTipo] = useState("un.");
+  const [categoria, setCategoria] = useState(categories[0]);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -25,11 +27,13 @@ export function Form({ onAddProduct }) {
       nome,
       quantidade,
       tipo,
+      categoria,
     });
 
     setNome("");
     setQuantidade(1);
     setTipo("un.");
+    setCategoria(categories[0]);
   }
 
   return (
@@ -68,6 +72,10 @@ export function Form({ onAddProduct }) {
 
       <div className="item-input">
         <label htmlFor="category">Categoria</label>
+        <Category
+          selectedCategory={categoria}
+          onChange={(cat) => setCategoria(cat)}
+        />
       </div>
 
       <button type="submit">

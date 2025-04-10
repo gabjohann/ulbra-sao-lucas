@@ -12,37 +12,22 @@ export function App() {
     setProductList((prevList) => [...prevList, newProduct]);
   }
 
-  /*   
-  const [search, setSearch] = useState("");
-
-  const filteredList = shoopingList.lista_de_compras.filter(({ nome }) =>
-    nome.toLocaleLowerCase().includes(search.toLocaleLowerCase)
-  ); */
-
   return (
     <>
       <Header />
       <div className="container">
-        {/*   <Form onSearch={setSearch} /> */}
         <Form onAddProduct={handleAddProcut} />
 
         <div className="product-list">
-          {productList.map(({ nome, quantidade, tipo }, index) => (
+          {productList.map(({ nome, quantidade, tipo, categoria }, index) => (
             <Product
               key={index}
               productName={nome}
               quantity={quantidade}
               type={tipo}
+              category={categoria}
             />
           ))}
-          {/*     {filteredList.map(({ nome, quantidade, tipo }, index) => (
-            <Product
-              key={index}
-              productName={nome}
-              quantity={quantidade}
-              type={tipo}
-            />
-          ))} */}
         </div>
       </div>
     </>
