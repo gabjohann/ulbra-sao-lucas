@@ -30,3 +30,8 @@
   color: var(--danger);
   border-radius: 4px;
 }
+
+.task-description.completed {
+  text-decoration: line-through;
+  color: var(--gray-500);
+}
